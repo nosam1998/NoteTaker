@@ -35,7 +35,10 @@ const appendRecord = (data) => {
 
 
 router.get("/notes", function (req, res) {
-    res.json(getDB());
+    let db_json = getDB();
+    res.json(db_json);
+
+    // res.json(getDB());
 });
 
 
@@ -46,6 +49,7 @@ router.post("/notes", function (req, res) {
         text: req.body.text,
     }
     appendRecord(temp_note);
+    res.json(getDB());
 });
 
 
